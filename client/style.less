@@ -1,4 +1,7 @@
-@accent-color: #648F00;
+@import (css) url(http://fonts.googleapis.com/css?family=Mansalva);
+@import (css) url(http://fonts.googleapis.com/css?family=Alef);
+@import (css) url(http://fonts.googleapis.com/css?family=Arvo);
+@accent-color: #394053;
 @error-color: #FB654A;
 @secondary-text-color: #c1c1c1;
 
@@ -11,8 +14,8 @@ body, button, input {
   font-size: 1em;
 }
 h1, h2, h3, h4, h5, h6 {margin: 0; font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
-h1 { font-size: 2.25em; font-weight: normal;}
-h2 { font-size: 1.75em; font-weight: normal; margin-bottom: 20px;}
+h1 { text-align: center; font-family: "Mansalva"; font-size: 3em; font-weight: normal;}
+h2 { font-size: 1.75em; font-weight: normal;}
 h3 { font-size: 1.5em;  font-weight: normal;}
 h4 { font-size: 1.25em; font-weight: normal;}
 h5 { font-size: 1em;  font-weight: normal;}
@@ -28,23 +31,75 @@ a {
   }
 }
 
+
 // let the real CSS begin
 .spotify-login {
   h1 {
     background-color: @accent-color;
-    color: #fff;
+    color: #DDFFF7;
     padding: 20px 50px;
   }
+  .title {
+    h1 {
+      color: #DDFFF7;
+      font-size: 4em;
+    }
+  }
+  .about {
+    h2 {
+      color: #FCA17D;
+      font-size: 1.3em;
+      font-family: 'Alef';
+      padding: 20px;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+  .Loading {
+    h1{
+      font-family: "Alef";
+      color: #DDFFF7;
+      margin-top: 20%;
+    }
+  }
+  .options{
+    background-color:#DDFFF7;
+    .madlib{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        color: black;
+        font-family: 'Arvo';
+        font-size: 2.5em;
+        padding: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        text-align: center;
+      }
+    }
+    h1 {
+      color: #E8B9AB;
+      font-size: 4em;
+    }
+    
+  }
   .page-content {
-    padding: 10px 50px 50px 50px;
+    //padding: 10px 50px 50px 50px;
     display: flex;
     flex-direction: column;
   }
   .login {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 15%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .login-btn .spotify-btn {
       .main {
         fill: @accent-color;
@@ -53,6 +108,38 @@ a {
         fill: black;
       }
     }
+  }
+  .userInput {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2 {
+      font-family: 'Alef';
+      font-size: 1.5em;
+    }
+    h3 {
+      font-family: 'Mansalva';
+      font-size: 2em;
+      margin-bottom: 1.5%;
+    }
+  }
+  .button {
+    box-shadow: 3px 4px 0px 0px #394053;
+	  background-color:#9297C4;
+	  border-radius:18px;
+	  border:1px solid #9297C4;
+	  display:inline-block;
+	  cursor:pointer;
+	  color:#ffffff;
+	  font-family:Arial;
+	  font-size:17px;
+	  padding:7px 25px;
+	  text-decoration:none;
+  }
+  input[type=text]:focus {
+    background-color: lightblue;
   }
   .error {
     color: @error-color;

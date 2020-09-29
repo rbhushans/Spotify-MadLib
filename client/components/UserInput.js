@@ -41,7 +41,7 @@ class UserInput extends Component {
 
     // puts entire phrase together 
     const phraseCreator = () => {
-        for(var i = 0; i < phraseObj.artists; i++){
+       for(var i = 0; i < phraseObj.artists; i++){
             let randomArtist = Math.floor(Math.random() * artists.length)
             let rand = artists[randomArtist]
             phraseObj.phrase = phraseObj.phrase.replace("%a", rand.name)
@@ -64,8 +64,8 @@ class UserInput extends Component {
         for(var i = 0; i < adjectives.length; i++){
             phraseObj.phrase = phraseObj.phrase.replace("%adj", adjectives[i])
         }
-        this.setState({phrase: <h1>{phraseObj.phrase}</h1>})
-        return (<h1>{phraseObj.phrase}</h1>)
+
+        this.setState({phrase: <h2 class="about">{phraseObj.phrase}</h2>})
     }
 
     // stores the inputs by changing the state
@@ -93,38 +93,45 @@ class UserInput extends Component {
     return(
         <div>
             {((artists == undefined || tracks == undefined || loading)) ?
-                <div>
+                <div className="Loading" style={{position: 'absolute', top: 0, right: 0, bottom:0, left: 0, 'z-index': 0, 'background-color':'#394053'}}>
                     <h1>Loading</h1>
                 </div>
-            : <div>
+            : <div className="options" style={{position: 'absolute', top: 0, right: 0, bottom:0, left: 0, 'z-index': 0, 'background-color':'#DDFFF7'}}>
+                <h1>Spotify Mad Libs</h1>
                 {this.state.sub ? 
-                <div>
+                <div className='userInput'>
                     {/* reads in the user input */}
-                    <h1>Select the words</h1>
-                    <h2>Nouns: </h2>
+                    <h3>Select the words</h3>
+                    
+                    {nouns.length > 0 && <h2>nouns: </h2>}
+
                     {nouns.map((val, ind) => {
                         return(
-                            <input onChange={(event => setNouns(event, ind))} />
+                            <input style={{margin: '1%'}} onChange={(event => setNouns(event, ind))} />
                         )
                     })}
-                    <h2>Verbs: </h2>
+                    {nouns.length>0 && <p></p>}
+                    {verbs.length > 0 && <h2>verbs: </h2>}
+                    
                     {verbs.map((val, ind) => {
                         return(
-                            <input onChange={(event => setVerbs(event, ind))} />
+                            <input style={{margin: '1%'}} onChange={(event => setVerbs(event, ind))} />
                         )
                     }) }
-                    <h2>Adjectives: </h2>
+                    {verbs.length>0 && <p></p>}                    
+                    {adjectives.length > 0 && <h2>adjectives: </h2>}
                     {adjectives.map((val, ind) => {
                         return(
-                            <input onChange={(event => setAdjectives(event, ind))} />
+                            <input style={{margin: '1%'}} onChange={(event => setAdjectives(event, ind))} />
                         )
                     })}
-                    <button onClick={handleSubmit}>Submit!</button>
+                    {adjectives.length>0 && <p></p>}
+                    <button className='button' onClick={handleSubmit}>Submit!</button>
                 </div>
                 :
-                <div>
+                <div className="madlib">
                     {this.state.phrase}
-                    <button onClick={handleRefresh}>Play Again!</button>
+                    <button className='button' onClick={handleRefresh}>Play Again!</button>
                 </div>
                 }
             </div>

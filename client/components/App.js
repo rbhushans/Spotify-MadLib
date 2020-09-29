@@ -10,7 +10,6 @@ export default class SpotifyLogin extends Component {
     const {children} = this.props;
     return (
       <div className="spotify-login">
-        <h1>Spotify Mad Libs</h1>
         <div className="page-content">
           {children}
         </div>
